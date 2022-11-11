@@ -1,0 +1,34 @@
+{
+  "menu": [
+    {
+      "url": "/",
+      "name": "Home",
+      "icon": "menu-icon tf-icons bx bx-home",
+      "slug": "pages-home"
+    },
+    {
+      "url": "/boletas",
+      "icon": "menu-icon tf-icons bx bx-laptop",
+      "name": "Boletas",
+      "slug": "pages-boletas"
+    },
+    {
+      "url": "/clientes",
+      "icon": "menu-icon tf-icons bx bx-face",
+      "name": "Clientes",
+      "slug": "pages-clientes"
+    },
+    {
+      "url": "/users",
+      "icon": "menu-icon tf-icons bx bx-user",
+      "name": "Usuarios",
+      "slug": "pages-users"
+    },
+    {
+      "url": "/reportes",
+      "icon": "menu-icon tf-icons bx bxs-report",
+      "name": "Reportes",
+      "slug": "pages-reportes"
+    }
+  ]
+}
