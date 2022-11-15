@@ -41,7 +41,7 @@ class Boletas extends Controller
   public function show($boleta_id)
   {
     $boleta = Boleta::find($boleta_id);
-    return view('content.pages.boeltas-show',['boleta'=>$boleta]);
+    return view('content.pages.boletas-show',['boleta'=>$boleta]);
   }
   public function update(Request $request)
   {

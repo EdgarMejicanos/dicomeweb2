@@ -20,10 +20,8 @@ return new class extends Migration
 
             $table->foreign('clientes_id')->references('id')->on('clientes');
             $table->foreign('users_id')->references('id')->on('users');
-            $table->string('descripcion');
             $table->integer('idTecnico');
             $table->integer('estado');
-            $table->float('costo');
             $table->timestamps();
         });
     }

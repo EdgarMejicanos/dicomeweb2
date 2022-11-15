@@ -21,6 +21,8 @@ return new class extends Migration
             $table->string('equipo',60);
             $table->string('marca', 60);
             $table->string('serie', 60)->nullable();
+            $table->string('descripcion')->nullable();
+            $table->float('costo');
             $table->timestamps();
         });
     }
