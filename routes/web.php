@@ -49,4 +49,16 @@ $controller_path = 'App\Http\Controllers';
     Route::get('/clientes/show/{cliente_id}', $controller_path . '\pages\Clientes@show')->name('pages-clientes-show');
     Route::post('/clientes/update', $controller_path . '\pages\Clientes@update')->name('pages-clientes-update');
     Route::get('/clientes/destroy/{cliente_id}', $controller_path . '\pages\Clientes@destroy')->name('pages-clientes-destroy');
+
+    // Route::get('/clientes/findnit', $controller_path . '\pages\Clientes@findClientByNit')->name('pages-clientes-findNit');
+
+    //boletas
+    Route::get('/boletas', $controller_path . '\pages\Boletas@index')->name('pages-boletas');
+    Route::get('/boletas/create', $controller_path . '\pages\Boletas@create')->name('pages-boletas-create');
+    Route::post('boletas/store', $controller_path . '\pages\Boletas@store')->name('pages-boletas-store');
+    Route::get('/boletas/show/{boleta_id}', $controller_path . '\pages\Boletas@show')->name('pages-boletas-show');
+    Route::post('/boletas/update', $controller_path . '\pages\Boletas@update')->name('pages-boletas-update');
+    Route::get('/boletas/destroy/{boleta_id}', $controller_path . '\pages\Boletas@destroy')->name('pages-boletas-destroy');
+
+
 });

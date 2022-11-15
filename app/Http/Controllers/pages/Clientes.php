@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Cliente;
 use Illuminate\Support\Facades\Hash;
 
+
 class Clientes extends Controller
 {
   public function index()
@@ -59,4 +60,18 @@ class Clientes extends Controller
     $cliente->delete();
     return redirect()->route('pages-clientes');
   }
+
+  public function findClientByNit(Request $request) {
+    $nit = $request->query('nit', 'x');
+
+    $client = Cliente::where('nit', '=', $nit)->first();
+
+    if ($client) {
+      return response()->json($client);
+    } else {
+      return response()->json([
+        'message' => 'Cliente no encontrado',
+      ], 404);
+    }
+}
 }
