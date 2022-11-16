@@ -16,10 +16,12 @@ class Users extends Controller
 
     return view('content.pages.users', ['users'=>$users]);
   }
+
   public function create()
   {
     return view('content.pages.users-create');
   }
+
   public function store(Request $request)
   {
     $validator = $request->validate([
@@ -35,11 +37,13 @@ class Users extends Controller
       $user->save();
       return redirect()->route('pages-users');
   }
+
   public function show($user_id)
   {
     $user = User::find($user_id);
     return view('content.pages.users-show',['user'=>$user]);
   }
+
   public function update(Request $request)
   {
     $user = User::find($request->user_id);
@@ -53,10 +57,26 @@ class Users extends Controller
     $user->save();
     return redirect()->route('pages-users');
   }
+
   public function destroy($user_id)
   {
     $user = User::find($user_id);
     $user->delete();
+    return redirect()->route('pages-users');
+  }
+
+  public function switch($user_id)
+  {
+    $user = User::find($user_id);
+    if($user->hasRole('admin'))
+    {
+      $user->removeRole('admin');
+      $user->assignRole('tecnico');
+    }else{
+      $user->removeRole('tecnico');
+      $user->assignRole('admin');
+    }
+
     return redirect()->route('pages-users');
   }
 }

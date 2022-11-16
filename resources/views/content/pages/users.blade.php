@@ -7,6 +7,7 @@ $configData = Helper::appClasses();
 @section('title', 'Usuarios')
 
 @section('content')
+@role('admin')
 <h4>Empleados registrados</h4>
 
 <div class="card">
@@ -18,6 +19,7 @@ $configData = Helper::appClasses();
           <th>Id</th>
           <th>Nombre</th>
           <th>Correo</th>
+          <th>Rol</th>
           <th>Creado en</th>
           <th>Acciones</th>
         </tr>
@@ -29,6 +31,16 @@ $configData = Helper::appClasses();
             <td>{{$user->id}}</td>
             <td>{{$user->name}}</td>
             <td>{{$user->email}}</td>
+            <td>
+              @if($user->hasRole('admin'))
+                <a href="{{route('pages-users-switch-role', $user->id)}}">
+                <span class="badge bg-primary">Admin</span></a>
+              @else
+              <a href="{{route('pages-users-switch-role', $user->id)}}">
+                <span class="badge bg-success">Tecnico</span></a>
+
+              @endif
+              </td>
             <td>{{$user->created_at}}</td>
             <td><a href="{{route('pages-users-show', $user->id)}}">Editar</a> | <a href="{{route('pages-users-destroy', $user->id)}}">Borrar</a></td>
 
@@ -41,4 +53,11 @@ $configData = Helper::appClasses();
     </table>
   </div>
 </div>
+@endrole
+@role('tecnico')
+ <div class="card">
+    <h1>No tienes permisos para ver esta sección.</h1>
+    <p>Si crees que esto es un error puedes contactar con el administrador.</p>
+ </div>
+@endrole
 @endsection

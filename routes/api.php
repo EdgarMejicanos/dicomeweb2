@@ -20,3 +20,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('/clientes/findnit', [Clientes::class, 'findClientByNit']);
+
+/**
+ * Route::post('/boletas/crear', [Boletas::class, 'crearBoleta']);
+ */

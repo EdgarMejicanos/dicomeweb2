@@ -6,6 +6,37 @@ $configData = Helper::appClasses();
 
 @section('title', 'Crear boleta')
 
+@section('page-script')
+<script>
+  let equipos = [];
+
+  $("#btn-add-item").click((e) => {
+    e.preventDefault();
+
+    let tipo = $("#tipo-equipo").val();
+    let marca = $("#marca-equipo").val();
+    let serie = $("#serie-equipo").val();
+    let problema = $("#problema-equipo").val();
+    let costo = $("#costo-equipo").val();
+
+    addItemToList({ tipo, marca, serie, problema, costo });
+  });
+
+  function addItemToList(equipo) {
+    equipos.push(equipo);
+
+    reloadTable();
+  }
+
+  function reloadTable() {
+    equipos.forEach((equipo) => {
+      $(`<tr><td>${equipo.tipo}</td><td>${equipo.marca}</td><td>${equipo.serie}</td><td>${equipo.problema}</td><td>${equipo.costo}</td></tr>`).appendTo("#tabla-equipos tbody");
+    });
+  };
+
+</script>
+@endsection
+
 @section('content')
 <h4>Creando una boleta nueva</h4>
 
@@ -60,36 +91,36 @@ $configData = Helper::appClasses();
     <div class="card-header d-flex justify-content-between align-items-center">
     </div>
     <div class="card-body">
-      <form method="POST" action="{{route('pages-boletas-store')}}">
+      <form>
       @csrf
         <div class="mb-3">
           <label class="form-label" for="basic-default-fullname">Tipo de equipo</label>
-          <input type="text" name="equipo" class="form-control" id="basic-default-fullname" placeholder="Laptop/Tablet/Escritorio" required/>
+          <input type="text" name="equipo" class="form-control" id="tipo-equipo" placeholder="Laptop/Tablet/Escritorio" required/>
         </div>
         <div class="mb-3">
           <label class="form-label" for="basic-default-company">Marca</label>
-          <input type="text" name="marca" class="form-control" id="basic-default-company" placeholder="Dell/Toshiba/HP/Asus" required/>
+          <input type="text" name="marca" class="form-control" id="marca-equipo" placeholder="Dell/Toshiba/HP/Asus" required/>
         </div>
         <div class="mb-3">
           <label class="form-label" for="basic-default-email">No. serie</label>
-            <input type="text"  name="serie"  class="form-control" placeholder="S/N f8xl3rf" >
-          </div>
+          <input type="text"  name="serie" class="form-control" id="serie-equipo" placeholder="S/N f8xl3rf" >
+        </div>
         <div class="mb-3">
           <label class="form-label" for="basic-default-email">Problema</label>
           <div class="input-group input-group-merge">
-            <input type="text"  name="descripcion"  class="form-control" placeholder="Ejemplo: No enciende, Deja cargador, etc." >
+            <input type="text"  name="descripcion"  class="form-control" id="problema-equipo" placeholder="Ejemplo: No enciende, Deja cargador, etc." >
           </div>
 
           <div class="mb-3">
             <label class="form-label" for="basic-default-email">Costo en Q</label>
             <div class="input-group input-group-merge">
-              <input type="text"  name="costo"  class="form-control" placeholder="Q75.00"  required>
+              <input type="text"  name="costo"  class="form-control" id="costo-equipo" placeholder="Q75.00"  required>
             </div>
 
           <div class="form-text"> Complete los campos correctamente </div>
         </div>
 
-        <button type="submit" class="btn btn-primary">Guardar</button>
+        <button id="btn-add-item" class="btn btn-primary">Guardar</button>
       </form>
     </div>
   </div>
@@ -98,7 +129,7 @@ $configData = Helper::appClasses();
 
 <div class="card">
   <div class="table-responsive text-nowrap">
-    <table class="table">
+    <table class="table" id="tabla-equipos">
       <thead>
         <tr>
           <th>Id</th>
@@ -111,20 +142,6 @@ $configData = Helper::appClasses();
         </tr>
       </thead>
       <tbody class="table-border-bottom-0">
-       {{-- @foreach ($detalle_boletas as $detalle_boleta)
-
-          <tr>
-            <td>{{$detalle_boleta->id}}</td>
-            <td>{{$detalle_boleta->equipo}}</td>
-            <td>{{$detalle_boleta->marca}}</td>
-            <td>{{$detalle_boleta->serie}}</td>
-            <td>{{$detalle_boleta->descripcion}}</td>
-            <td>{{$detalle_boleta->costo}}</td>
-            <td><a href="{{route('pages-boletas-show', $detalle_boleta->id)}}">Editar</a> | <a href="{{route('pages-boletas-destroy', $detalle_boleta->id)}}">Borrar</a></td>
-
-          </tr>
-
-       @endforeach --}}
 
       </tbody>
     </table>

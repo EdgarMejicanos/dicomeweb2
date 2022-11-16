@@ -42,6 +42,9 @@ $controller_path = 'App\Http\Controllers';
     Route::post('/users/update', $controller_path . '\pages\Users@update')->name('pages-users-update');
     Route::get('/users/destroy/{user_id}', $controller_path . '\pages\Users@destroy')->name('pages-users-destroy');
 
+    //switch de roles
+    Route::get('/roles/switch/{user_id}', $controller_path . '\pages\Users@switch')->name('pages-users-switch-role');
+
     //clientes
     Route::get('/clientes', $controller_path . '\pages\Clientes@index')->name('pages-clientes');
     Route::get('/clientes/create', $controller_path . '\pages\Clientes@create')->name('pages-clientes-create');
@@ -60,5 +63,12 @@ $controller_path = 'App\Http\Controllers';
     Route::post('/boletas/update', $controller_path . '\pages\Boletas@update')->name('pages-boletas-update');
     Route::get('/boletas/destroy/{boleta_id}', $controller_path . '\pages\Boletas@destroy')->name('pages-boletas-destroy');
 
+    //Backups
+    Route::get('/backups', $controller_path . '\pages\Backups@index')->name('pages-backups');
+
+    //Reportes
+    Route::get('/reports', $controller_path . '\pages\Reports@index')->name('pages-reports');
+    Route::get('/reports/create', $controller_path . '\pages\Reports@create')->name('pages-reports-create');
+    Route::get('/reports/delete/{id}', $controller_path . '\pages\Reports@delete')->name('pages-reports-destroy');
 
 });

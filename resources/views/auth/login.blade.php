@@ -20,7 +20,9 @@ $customizerHidden = 'customizer-hide';
       <div class="flex-row text-center mx-auto">
         {{-- <img src="{{asset('assets/img/pages/login-'.$configData['style'].'.png')}}" alt="Auth Cover Bg color" width="520" class="img-fluid authentication-cover-img" data-app-light-img="pages/login-light.png" data-app-dark-img="pages/login-dark.png"> --}}
         <div class="mx-auto">
-          <h1>DICOME</h1>
+          <img srcset="https://scontent.fgua8-1.fna.fbcdn.net/v/t39.30808-6/255019837_4323168551086074_2003608752228759990_n.png?_nc_cat=109&ccb=1-7&_nc_sid=174925&_nc_ohc=c6A6-Ar5JQAAX80xL8f&_nc_ht=scontent.fgua8-1.fna&oh=00_AfBKoJeGIAoo99fjr_4xO_w0Odw_uK3pwwOD0tVdDv4i_Q&oe=63798814" alt="Logo dicome">
+
+
           <h3>Una nueva forma de control tecnico 🥳</h3>
           <p>
             Perfectamente diseñada para ti y para todos los servicios tecnicos que necesites
@@ -67,7 +69,7 @@ $customizerHidden = 'customizer-hide';
               <label class="form-label" for="login-password">Password</label>
               @if (Route::has('password.request'))
               <a href="{{ route('password.request') }}">
-                <small>Forgot Password?</small>
+                {{-- <small>Forgot Password?</small> --}}
               </a>
               @endif
             </div>
@@ -93,10 +95,10 @@ $customizerHidden = 'customizer-hide';
         </form>
 
         <p class="text-center">
-          <span>New on our platform?</span>
+          <span>Si eres nuevo puedes contactar con el administrador</span>
           @if (Route::has('register'))
           <a href="{{ route('register') }}">
-            <span>Create an account</span>
+            {{-- <span>Create an account</span> --}}
           </a>
           @endif
         </p>

@@ -16,9 +16,7 @@ $configData = Helper::appClasses();
 @role('tecnico')
 <h2>Contenido solo para tecnico</h2>
 @endrole
-@role('vendedor')
-<h2>Contenido solo para vendedor</h2>
-@endrole
+
 <div class="row">
   <div class="col-xl-2">
     <div class="card">

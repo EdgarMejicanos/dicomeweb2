@@ -37,10 +37,7 @@ $configData = Helper::appClasses();
             <td><a href="{{route('pages-boletas-show', $boleta->id)}}">Editar</a> | <a href="{{route('pages-boletas-destroy', $boleta->id)}}">Borrar</a></td>
 
           </tr>
-
        @endforeach
-
-
       </tbody>
     </table>
   </div>

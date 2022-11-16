@@ -8,7 +8,7 @@ $configData = Helper::appClasses();
 
 @section('content')
 <h4>Editando un usuario</h4>
-
+@role('admin')
 <div class="row">
   <div class="card mb-4">
     <div class="card-header d-flex justify-content-between align-items-center">
@@ -39,6 +39,5 @@ $configData = Helper::appClasses();
   </div>
 
 </div>
-
-
-@endsection
+@endrole
+  @endsection

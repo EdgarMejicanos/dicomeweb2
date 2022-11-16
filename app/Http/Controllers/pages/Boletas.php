@@ -21,6 +21,14 @@ class Boletas extends Controller
   {
     return view('content.pages.boletas-create');
   }
+
+  public function crearBoleta(Request $request) {
+    // Aca se hace toda la logica para los dos modelos
+    // 1. Crear Boleta
+    // 2. Crear el detalle de boleta
+    // 3. Hacer un find de la boleta con su detalle y retornar el json;
+  }
+
   public function store(Request $request)
   {
     $validator = $request->validate([

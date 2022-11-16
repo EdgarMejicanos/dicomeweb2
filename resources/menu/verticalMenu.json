@@ -25,10 +25,16 @@
       "slug": "pages-users"
     },
     {
-      "url": "/reportes",
+      "url": "/reports",
       "icon": "menu-icon tf-icons bx bxs-report",
       "name": "Reportes",
-      "slug": "pages-reportes"
+      "slug": "pages-reports"
+    },
+    {
+      "url": "/backups",
+      "icon": "menu-icon tf-icons bx bxs-report",
+      "name": "Backups",
+      "slug": "pages-backups"
     }
   ]
 }
